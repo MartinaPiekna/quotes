@@ -1,0 +1,76 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #b58c4a;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#app {
+  background-color: transparent;
+  border-radius: 3px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  perspective: 2000px;
+  text-align: center;
+}
+
+#app:before {
+  display: block;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  content: '';
+  position: absolute;
+  transition: 0.4s;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-top: 20px solid #fff;
+  border-left: 20px solid #fff;
+  box-sizing: border-box;
+}
+
+#app:after {
+  display: block;
+  transition: 0.4s;
+  content: '';
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: 20px solid #fff;
+  border-right: 20px solid #fff;
+  box-sizing: border-box;
+}
+
+.inner-box {
+  transform: translateZ(0);
+}
+
+#app:hover .wrapper {
+  transform: translate(10px, -50%) rotateY(20deg) translateZ(0);
+}
+
+#app:hover::after,
+#app:hover::before {
+  transform: rotateY(-20deg) translateZ(0);
+}
+
+#app:hover .inner-box {
+  transform: rotateY(-20deg) translateZ(0);
+}
